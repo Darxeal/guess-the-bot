@@ -1,0 +1,30 @@
+{
+    "votableBots": [
+        {
+            "name": "Botimus Prime",
+            "command": "0",
+            "voteStatus": [null, false]
+        },
+        {
+            "name": "Wildfire",
+            "command": "1",
+            "voteStatus": [true, false]
+        }
+    ],
+    "mysteryBots": [
+        {
+            "identifier": "A",
+            "team": "blue",
+            "actualName": null,
+            "guessed": false,
+            "guessedBy": null
+        },
+        {
+            "identifier": "B",
+            "team": "orange",
+            "actualName": "Wildfire",
+            "guessed": true,
+            "guessedBy": "Robbie"
+        }
+    ]
+}

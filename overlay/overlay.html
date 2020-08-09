@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Bot - Overlay</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="card" style="float: left;">
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th v-for="bot in info.mysteryBots" :class="bot.team">{{ bot.identifier }}</th>
+                </tr>
+                <tr v-for="bot in info.votableBots">
+                    <td>{{ bot.command }}</td>
+                    <td><b>{{ bot.name }}</b></td>
+                    <td v-for="vote in bot.voteStatus">
+                        <span v-if="vote === true">✔️</span>
+                        <span v-if="vote === false">❌</span>
+                    </td>
+                </tr>
+            </table>
+            <p>Command: <code style="background-color: black;">!vote char number</code></p>
+            <p>Example: <code style="background-color: black;">!vote A 15</code></p>
+        </div>
+        <div class="bottom-center-wrapper">
+            <table>
+                <tr>
+                    <td v-for="bot in info.mysteryBots">
+                        <div class="card">
+                            <div :class="bot.team"><b>Mystery Bot {{ bot.identifier }}</b></div>
+
+                            <div v-if="bot.guessed" class="actual-name">{{ bot.actualName }}</div>
+                            <div v-else class="actual-name unknown">Unknown</div>
+
+                            <div v-if="bot.guessed" class="success">Guessed by <i>{{ bot.guessedBy }}</i></div>
+                            <div v-else><i class="unknown">Not yet guessed</i></div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="main.js"></script>
+</html>

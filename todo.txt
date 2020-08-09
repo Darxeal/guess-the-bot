@@ -1,0 +1,5 @@
+lowercase votes
+timeout after match end
+scoreboard
+better randomness
+use author.display_name
