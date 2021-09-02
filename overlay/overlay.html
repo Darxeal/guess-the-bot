@@ -29,8 +29,19 @@
                     </td>
                 </tr>
             </table>
-            <p>Command: <code style="background-color: black;">!vote char number</code></p>
-            <p>Example: <code style="background-color: black;">!vote A 15</code></p>
+            <p>Guess with this command:</p>
+            <div style="font-size: 20px;"><code>!guess <i>A/B</i> <i>NUMBER</i></code></div>
+            <p>Example:</p>
+            <div style="font-size: 30px;"><code>!guess B 4</code></div>
+        </div>
+        <div class="card" style="float: right;">
+            <b style="font-size: 35px;">Top guessers</b>
+            <table style="width: 100%;">
+                <tr v-for="row in info.scoreboard">
+                    <td><b>{{ row.name }}</b></td>
+                    <td>{{ row.score }}</td>
+                </tr>
+            </table>
         </div>
         <div class="bottom-center-wrapper">
             <table>

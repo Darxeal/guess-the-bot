@@ -26,5 +26,11 @@
             "guessed": true,
             "guessedBy": "Robbie"
         }
+    ],
+    "scoreboard": [
+        {
+            "name": "Robbie",
+            "score": 1
+        }
     ]
 }
