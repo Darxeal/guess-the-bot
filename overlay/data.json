@@ -1,0 +1,182 @@
+{
+    "votableBots": [
+        {
+            "name": "Atlas",
+            "command": 0,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Beast from the East",
+            "command": 1,
+            "voteStatus": [
+                false,
+                null
+            ]
+        },
+        {
+            "name": "Beetle",
+            "command": 2,
+            "voteStatus": [
+                true,
+                null
+            ]
+        },
+        {
+            "name": "Botimus Prime",
+            "command": 3,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Bribblebot",
+            "command": 4,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Codename Cryo",
+            "command": 5,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Diablo",
+            "command": 6,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Journey",
+            "command": 7,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Kamael",
+            "command": 8,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "NomBot_v1.0",
+            "command": 9,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "ReliefBot",
+            "command": 10,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Self-driving car",
+            "command": 11,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "SkyBot",
+            "command": 12,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Stick",
+            "command": 13,
+            "voteStatus": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Wildfire",
+            "command": 14,
+            "voteStatus": [
+                null,
+                null
+            ]
+        }
+    ],
+    "mysteryBots": [
+        {
+            "identifier": "A",
+            "team": "blue",
+            "actualName": "Beetle",
+            "guessed": true,
+            "guessedBy": "Robbieh0102"
+        },
+        {
+            "identifier": "B",
+            "team": "orange",
+            "actualName": "Codename Cryo",
+            "guessed": false,
+            "guessedBy": null
+        }
+    ],
+    "scoreboard": [
+        {
+            "name": "Robbieh0102",
+            "score": 100
+        },
+        {
+            "name": "myjourneyisnow",
+            "score": 37
+        },
+        {
+            "name": "NicEastvillage",
+            "score": 13
+        },
+        {
+            "name": "RLBotOfficial",
+            "score": 7
+        },
+        {
+            "name": "Darxeal",
+            "score": 7
+        },
+        {
+            "name": "Skyborg",
+            "score": 5
+        },
+        {
+            "name": "Ranger6777",
+            "score": 3
+        },
+        {
+            "name": "B1ue_F1re",
+            "score": 1
+        },
+        {
+            "name": "Footlessquill54",
+            "score": 1
+        },
+        {
+            "name": "hytak111",
+            "score": 0
+        }
+    ]
+}

@@ -36,7 +36,10 @@ STANDARD_MAPS = [
     "ForbiddenTemple",
     "RivalsArena",
     "Farmstead_Night",
-    "SaltyShores_Night"
+    "SaltyShores_Night",
+    "NeonFields",
+    "DFHStadium_Circuit",
+    "DeadeyeCanyon",
 ]
 
 

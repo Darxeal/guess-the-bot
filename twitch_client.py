@@ -17,7 +17,7 @@ from twitchio.ext.commands.core import Command
 
 from match_runner import run_match
 
-BOTS_PER_TEAM = 1
+BOTS_PER_TEAM = 3
 
 
 @dataclass
@@ -199,7 +199,7 @@ class TwitchBot(commands.Bot):
             } for name in sorted(self.scores, key=lambda name: self.scores[name], reverse=True)]
         }
         with open("overlay/data.json", "w") as file:
-            json.dump(overlay_data, file)
+            json.dump(overlay_data, file, indent=4)
 
 
 if __name__ == '__main__':
