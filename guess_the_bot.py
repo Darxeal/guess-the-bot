@@ -57,6 +57,10 @@ class GuessTheBot(commands.Bot):
         print(f'Ready | {self.nick}')
         await self.start_round()
 
+    @commands.command(name="help")
+    async def help(self, ctx: Context):
+        await ctx.send(f"@{ctx.author.display_name} Guess with this command: !guess <letter> <number>. For example: !guess B 13")
+
     @commands.command(name='skip')
     async def skip(self, ctx: Context):
         if ctx.author.is_mod:
