@@ -41,7 +41,7 @@ let app = new Vue({
                 const res = await $.get("data.json");
                 this.info = JSON.parse(res);
             } catch (err) {
-                document.getElementById("app").innerHTML = err.message;
+                
             }
         }
     },
