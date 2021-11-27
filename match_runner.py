@@ -70,7 +70,6 @@ def run_match(bot_configs: List[PlayerConfig], script_configs: List[ScriptConfig
     match_config.player_configs = bot_configs
     match_config.script_configs = script_configs
     match_config.mutators = MutatorConfig()
-    match_config.mutators.match_length = 'Unlimited'
 
     sm = get_fresh_setup_manager()
     sm.early_start_seconds = 5

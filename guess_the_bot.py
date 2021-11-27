@@ -1,3 +1,4 @@
+import asyncio
 import csv
 import random
 import string
@@ -11,13 +12,15 @@ from rlbot.matchconfig.loadout_config import LoadoutConfig
 from rlbot.matchconfig.match_config import PlayerConfig, ScriptConfig
 from rlbot.parsing.bot_config_bundle import BotConfigBundle
 from rlbot.parsing.directory_scanner import scan_directory_for_bot_configs
+from rlbot.utils.structures.game_data_struct import GameTickPacket
 from twitchio.ext import commands
 from twitchio import Context
 from twitchio.ext.commands.core import Command
 
 from match_runner import run_match
+import match_runner
 
-BOTS_PER_TEAM = 3
+BOTS_PER_TEAM = 1
 
 
 @dataclass
@@ -52,14 +55,14 @@ class GuessTheBot(commands.Bot):
 
     async def event_ready(self):
         print(f'Ready | {self.nick}')
-        self.start_round()
+        await self.start_round()
 
     @commands.command(name='skip')
     async def skip(self, ctx: Context):
         if ctx.author.is_mod:
             mystery_bot_names = ", ".join(bot.actual_name for bot in self.mysteries.values())
             await ctx.send(f"@{ctx.author.display_name} ⚠️ Skipping match. Mystery bots were: {mystery_bot_names}.")
-            self.start_round()
+            await self.start_round()
         else:
             await ctx.send(f"@{ctx.author.display_name} ⚠️ You don't have permissions for this command.")
 
@@ -150,7 +153,22 @@ class GuessTheBot(commands.Bot):
         self.active_thread = Thread(target=run_match, args=(bots, scripts), daemon=True)
         self.active_thread.start()
 
-    def start_round(self):
+    async def periodically_check_match_ended(self):
+        packet = GameTickPacket()
+        while True:
+            await asyncio.sleep(10.0)
+            print("Checking if round ended")
+            try:
+                match_runner.sm.game_interface.update_live_data_packet(packet)
+                if packet.game_info.is_match_ended:
+                    print("Match ended. Starting new round...")
+                    await self.start_round()
+                    print("New round started")
+                    break
+            except Exception as ex:
+                print(ex)
+
+    async def start_round(self):
         self.ignoring_guesses = True
 
         self.load_bots()
@@ -171,11 +189,11 @@ class GuessTheBot(commands.Bot):
         self.votes_by_bot.clear()
 
         self.start_match(bots, [caster_script])
+        await asyncio.sleep(10)
 
-        def fn():
-            self.ignoring_guesses = False
-            self.update_overlay()
-        Timer(5.0, fn).start()
+        asyncio.create_task(self.periodically_check_match_ended())
+        self.ignoring_guesses = False
+        self.update_overlay()
 
     def vote_status(self, identifier: str, number: int) -> Optional[bool]:
         if (identifier, number) in self.votes_by_bot:
