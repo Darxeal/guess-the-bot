@@ -1,11 +1,12 @@
 import asyncio
+from collections import defaultdict
 import csv
 import random
 import string
 import json
 import time
 from dataclasses import dataclass
-from threading import Thread, Timer
+from threading import Thread
 from typing import List, Dict, Set, Optional
 
 from rlbot.matchconfig.loadout_config import LoadoutConfig
@@ -15,12 +16,12 @@ from rlbot.parsing.directory_scanner import scan_directory_for_bot_configs
 from rlbot.utils.structures.game_data_struct import GameTickPacket
 from twitchio.ext import commands
 from twitchio import Context
-from twitchio.ext.commands.core import Command
 
 from match_runner import run_match
 import match_runner
 
 BOTS_PER_TEAM = 1
+TIMEOUT = 20 # seconds
 
 
 @dataclass
@@ -45,9 +46,10 @@ class GuessTheBot(commands.Bot):
         self.items: Dict[str, List[int]] = {}
         self.load_items()
 
-        self.votes_per_author: Set[(str, int)] = set()
         self.votes_by_bot: Dict[(str, int), str] = {}
         self.mysteries: Dict[str, MysteryBot] = {}
+
+        self.timeouts: Dict[(str, str), float] = defaultdict(float)
 
         self.scores: Dict[str, int] = {}
 
@@ -89,8 +91,9 @@ class GuessTheBot(commands.Bot):
         if self.is_mystery_bot_guessed(identifier):
             return await ctx.send(f"@{name} ⚠️ This mystery bot has been guessed already.")
 
-        if (name, identifier) in self.votes_per_author:
-            return await ctx.send(f"@{name} ⚠️ You have already voted for {bot.name}.")
+        remaining_timeout = self.timeouts[(name, identifier)] - time.time()
+        if remaining_timeout > 0:
+            return await ctx.send(f"@{name} ⚠️ You cannot guess {bot.name} for another {int(remaining_timeout)} seconds.")
 
         if vote in self.votes_by_bot:
             return await ctx.send(f"@{name} ⚠️ This vote has already been tried.")
@@ -100,8 +103,8 @@ class GuessTheBot(commands.Bot):
             self.scores[name] += 1
         else:
             await ctx.send(f"@{name} ❌ Wrong guess!")
+            self.timeouts[(name, identifier)] = time.time() + TIMEOUT
 
-        self.votes_per_author.add((name, identifier))
         self.votes_by_bot[(identifier, number)] = name
         self.update_overlay()
 
@@ -190,7 +193,7 @@ class GuessTheBot(commands.Bot):
         self.mysteries.clear()
         for i in range(len(bots)):
             self.mysteries[self.get_mystery_identifier(i)] = MysteryBot(bots[i].name, selected_numbers[i], selected_bot_bundles[i].name, bots[i].team)
-        self.votes_per_author.clear()
+        self.timeouts.clear()
         self.votes_by_bot.clear()
 
         self.start_match(bots, [caster_script])
