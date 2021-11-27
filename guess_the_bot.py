@@ -170,6 +170,7 @@ class GuessTheBot(commands.Bot):
 
     async def start_round(self):
         self.ignoring_guesses = True
+        self.update_overlay(round_end=True)
 
         self.load_bots()
         numbers = list(range(len(self.bot_bundles)))
@@ -200,8 +201,9 @@ class GuessTheBot(commands.Bot):
             return self.mysteries[identifier].number == number
         return None
 
-    def update_overlay(self):
+    def update_overlay(self, round_end=False):
         overlay_data = {
+            "roundEnd": round_end,
             "votableBots": [{
                 "name": self.bot_bundles[i].name,
                 "command": i,

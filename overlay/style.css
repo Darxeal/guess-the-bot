@@ -5,16 +5,31 @@ body {
     padding: 10px;
 }
 
-.bottom-center-wrapper {
+.fullscreen {
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+}
+
+.bottom-center-wrapper {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     padding: 10px;
+}
+
+.round-end-background {
+    background-image: url(background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(10px);
+}
+
+.text-shadow {
+    text-shadow: 4px 4px 8px black;
 }
 
 .blue {

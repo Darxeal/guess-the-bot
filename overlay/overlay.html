@@ -13,6 +13,34 @@
 </head>
 <body>
     <div id="app">
+        <div v-show="info.roundEnd" class="fullscreen" style="background-color: black; z-index: -1;">
+            <div class="fullscreen round-end-background">
+            </div>
+            <div class="fullscreen" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+                <div>
+                    <h1 class="text-shadow">Round has ended. Mystery bots were:</h1>
+                </div>
+    
+                <table>
+                    <tr>
+                        <td v-for="team in ['blue', 'orange']">
+                            <div class="card" v-for="bot in info.mysteryBots" v-if="bot.team == team">
+                                <div class="actual-name" :class="bot.team">{{ bot.actualName }}</div>
+                
+                                <div><b>Mystery Bot {{ bot.identifier }}</b></div>
+                
+                                <div v-if="bot.guessed" class="success">Guessed by <i>{{ bot.guessedBy }}</i></div>
+                                <div v-else><i class="unknown">Not guessed</i></div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+    
+                <div>
+                    <h1 class="text-shadow">Starting new round in a few seconds</h1>
+                </div>
+            </div>
+        </div>
         <div class="card" style="float: right;">
             <table>
                 <tr>
@@ -43,7 +71,7 @@
                 </tr>
             </table>
         </div>
-        <div class="bottom-center-wrapper">
+        <div class="fullscreen bottom-center-wrapper" v-show="!info.roundEnd">
             <table>
                 <tr>
                     <td v-for="bot in info.mysteryBots">
