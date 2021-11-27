@@ -1,33 +1,49 @@
 {
     "votableBots": [
         {
-            "name": "Atlas",
+            "name": "Beast from the East",
             "command": 0,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
-            "name": "Beast from the East",
+            "name": "BitBot",
             "command": 1,
             "voteStatus": [
-                false,
-                null
-            ]
-        },
-        {
-            "name": "Beetle",
-            "command": 2,
-            "voteStatus": [
-                true,
+                null,
+                null,
+                null,
+                null,
+                null,
                 null
             ]
         },
         {
             "name": "Botimus Prime",
+            "command": 2,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "BotTaco",
             "command": 3,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
@@ -37,85 +53,273 @@
             "command": 4,
             "voteStatus": [
                 null,
+                null,
+                null,
+                null,
+                null,
                 null
             ]
         },
         {
-            "name": "Codename Cryo",
+            "name": "BroccoliBot",
             "command": 5,
             "voteStatus": [
                 null,
-                null
-            ]
-        },
-        {
-            "name": "Diablo",
-            "command": 6,
-            "voteStatus": [
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
-            "name": "Journey",
+            "name": "DishBot",
+            "command": 6,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "DougBot",
             "command": 7,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "DownToEarth",
+            "command": 8,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Engine",
+            "command": 9,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "FillamentBot",
+            "command": 10,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Gosling",
+            "command": 11,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "GratinAI",
+            "command": 12,
+            "voteStatus": [
+                null,
+                false,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "HellowBot",
+            "command": 13,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
             "name": "Kamael",
-            "command": 8,
+            "command": 14,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
-            "name": "NomBot_v1.0",
-            "command": 9,
+            "name": "Molten",
+            "command": 15,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
-            "name": "ReliefBot",
-            "command": 10,
+            "name": "Phoenix",
+            "command": 16,
             "voteStatus": [
                 null,
+                false,
+                null,
+                null,
+                null,
                 null
+            ]
+        },
+        {
+            "name": "PotatOS But Better",
+            "command": 17,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "RedBot",
+            "command": 18,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                true
             ]
         },
         {
             "name": "Self-driving car",
-            "command": 11,
+            "command": 19,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
-            "name": "SkyBot",
-            "command": 12,
+            "name": "Shere Khan",
+            "command": 20,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
             "name": "Stick",
-            "command": 13,
+            "command": 21,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
         },
         {
-            "name": "Wildfire",
-            "command": 14,
+            "name": "Teammate",
+            "command": 22,
             "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "TensorBot",
+            "command": 23,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "Vibe",
+            "command": 24,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "W Train",
+            "command": 25,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]
+        },
+        {
+            "name": "YangBot",
+            "command": 26,
+            "voteStatus": [
+                null,
+                null,
+                null,
+                null,
                 null,
                 null
             ]
@@ -125,57 +329,81 @@
         {
             "identifier": "A",
             "team": "blue",
-            "actualName": "Beetle",
-            "guessed": true,
-            "guessedBy": "Robbieh0102"
+            "actualName": "Gosling",
+            "guessed": false,
+            "guessedBy": null
         },
         {
             "identifier": "B",
-            "team": "orange",
-            "actualName": "Codename Cryo",
+            "team": "blue",
+            "actualName": "Molten",
             "guessed": false,
             "guessedBy": null
+        },
+        {
+            "identifier": "C",
+            "team": "blue",
+            "actualName": "Molten",
+            "guessed": false,
+            "guessedBy": null
+        },
+        {
+            "identifier": "D",
+            "team": "orange",
+            "actualName": "BroccoliBot",
+            "guessed": false,
+            "guessedBy": null
+        },
+        {
+            "identifier": "E",
+            "team": "orange",
+            "actualName": "Phoenix",
+            "guessed": false,
+            "guessedBy": null
+        },
+        {
+            "identifier": "F",
+            "team": "orange",
+            "actualName": "RedBot",
+            "guessed": true,
+            "guessedBy": "Darxeal"
         }
     ],
     "scoreboard": [
         {
-            "name": "Robbieh0102",
-            "score": 100
-        },
-        {
-            "name": "myjourneyisnow",
-            "score": 37
-        },
-        {
             "name": "NicEastvillage",
-            "score": 13
-        },
-        {
-            "name": "RLBotOfficial",
-            "score": 7
+            "score": 9
         },
         {
             "name": "Darxeal",
-            "score": 7
+            "score": 6
         },
         {
-            "name": "Skyborg",
-            "score": 5
+            "name": "CodeRed_TV",
+            "score": 2
         },
         {
-            "name": "Ranger6777",
-            "score": 3
+            "name": "impossibum_plays",
+            "score": 2
         },
         {
-            "name": "B1ue_F1re",
+            "name": "CTAG071",
             "score": 1
         },
         {
-            "name": "Footlessquill54",
-            "score": 1
+            "name": "w3skal",
+            "score": 0
         },
         {
-            "name": "hytak111",
+            "name": "TehRedox",
+            "score": 0
+        },
+        {
+            "name": "tarehart",
+            "score": 0
+        },
+        {
+            "name": "Calculated_Will",
             "score": 0
         }
     ]

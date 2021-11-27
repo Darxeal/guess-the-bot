@@ -8,7 +8,7 @@ from threading import Thread, Timer
 from typing import List, Dict, Set, Optional
 
 from rlbot.matchconfig.loadout_config import LoadoutConfig
-from rlbot.matchconfig.match_config import PlayerConfig
+from rlbot.matchconfig.match_config import PlayerConfig, ScriptConfig
 from rlbot.parsing.bot_config_bundle import BotConfigBundle
 from rlbot.parsing.directory_scanner import scan_directory_for_bot_configs
 from twitchio.ext import commands
@@ -28,11 +28,14 @@ class MysteryBot:
     team: int
 
 
-class TwitchBot(commands.Bot):
+caster_script = ScriptConfig("caster-bot/caster.cfg")
+
+
+class GuessTheBot(commands.Bot):
     def __init__(self):
         with open("oauth.txt") as file:
             oauth = file.readline()
-        super().__init__(irc_token=oauth, nick='Darxeal', prefix='!', initial_channels=['darxeal'])
+        super().__init__(irc_token=oauth, nick='GuessTheBot', prefix='!', initial_channels=['darxeal'])
 
         self.active_thread: Optional[Thread] = None
         self.bot_bundles: List[BotConfigBundle] = []
@@ -141,10 +144,10 @@ class TwitchBot(commands.Bot):
     def get_mystery_identifier(index: int) -> str:
         return string.ascii_uppercase[index]
 
-    def start_match(self, bots: List[PlayerConfig]):
+    def start_match(self, bots: List[PlayerConfig], scripts: List[ScriptConfig]):
         if self.active_thread and self.active_thread.is_alive():
             self.active_thread.join(3.0)
-        self.active_thread = Thread(target=run_match, args=(bots,), daemon=True)
+        self.active_thread = Thread(target=run_match, args=(bots, scripts), daemon=True)
         self.active_thread.start()
 
     def start_round(self):
@@ -167,7 +170,7 @@ class TwitchBot(commands.Bot):
         self.votes_per_author.clear()
         self.votes_by_bot.clear()
 
-        self.start_match(bots)
+        self.start_match(bots, [caster_script])
 
         def fn():
             self.ignoring_guesses = False
@@ -203,5 +206,5 @@ class TwitchBot(commands.Bot):
 
 
 if __name__ == '__main__':
-    bot = TwitchBot()
+    bot = GuessTheBot()
     bot.run()

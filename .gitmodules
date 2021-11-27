@@ -1,0 +1,3 @@
+[submodule "caster-bot"]
+	path = caster-bot
+	url = https://github.com/Impossibum/Caster-bot.git
